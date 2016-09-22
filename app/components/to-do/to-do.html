@@ -1,0 +1,16 @@
+<div id="todo" ng-app="todo">
+   <div id="todo-header">
+      <div id="input-field"><input type="text" id="todo-input" ng-model="todo.user_to_add" ng-keyup="todo.handleEnterClick($event)"></div>
+      <div id="todo-controls">
+         <button id="add-item-button" ng-click="todo.handleAddUser()">Add</button>
+      </div>
+   </div>
+   <div id="todo-list">
+      <ul>
+         <li ng-repeat="user in todo.users | filter:todo.user_to_add" data-id="{{todo.users.indexOf(user)}}">
+            {{user}}
+            <i class="delete_user" ng-click="todo.handleDeleteUser($event)">&times;</i>
+         </li>
+      </ul>
+   </div>
+</div>

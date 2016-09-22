@@ -1,0 +1,98 @@
+#todo {
+  border: 1px solid #ddd;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  height: 400px;
+  width: 300px;
+}
+
+#todo-header {
+  padding: 20px;
+  #input-field {
+    margin-bottom: 10px;
+    #todo-input {
+      box-sizing: border-box;
+      border: 1px solid #eee;
+      display: block;
+      width: 100%;
+      padding: 10px;
+      font-style: italic;
+      font-size: 14px;
+      &:focus {
+        outline: none;
+        border-color: #acc;
+      }
+    }
+  }
+  #todo-controls {
+    &:after {
+      content: '';
+      display: block;
+      height: 0;
+      visibility: hidden;
+      clear: both;
+    }
+    #add-item-button {
+      display: block;
+      float: right;
+      padding: 7px 20px;
+      background: none;
+      border: 1px solid #acc;
+      border-radius: 3px;
+      color: #acc;
+      cursor: pointer;
+      &:hover {
+        background-color: #acc;
+        color: #fff;
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}
+
+#todo-list {
+  margin: 20px;
+  margin-top: 0;
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  ul li {
+    position: relative;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    box-sizing: border-box;
+    color: #777;
+    &:last-child {
+      border-bottom: none;
+    }
+    &:hover {
+      background-color: lighten(#ddd, 10%);
+      i.delete_user {
+        visibility: visible;
+      }
+    }
+    span {
+      pointer-events: none;
+    }
+    i.delete_user {
+      display: inline-block;
+      position: absolute;
+      text-align: center;
+      vertical-align: top;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 15px;
+      font-style: normal;
+      line-height: 13px;
+      cursor: pointer;
+      visibility: hidden;
+    }
+  }
+}
