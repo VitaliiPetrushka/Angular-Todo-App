@@ -1,0 +1,6 @@
+<li ng-dblclick="todoItem.handleEditMode()">
+   <span ng-hide="todoItem.edit">{{todoItem.user.name}}</span>
+   <input type="text" ng-model="todoItem.user_edit" ng-show="todoItem.edit">
+   <i ng-hide="todoItem.edit" class="delete_user" ng-click="todoItem.handleDeleteUser()">&times;</i>
+   <i ng-show="todoItem.edit" ng-click="todoItem.handleEditApply()">ok</i>
+</li>

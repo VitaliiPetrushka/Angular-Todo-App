@@ -1,4 +1,4 @@
-export default function Routes($routeProvider) {
+export default function ($routeProvider) {
    $routeProvider.when("/", {
       templateUrl: "./templates/pages/home.html"
    }).when("/contacts", {

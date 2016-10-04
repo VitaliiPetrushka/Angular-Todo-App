@@ -1,24 +1,11 @@
-var webpack = require('webpack');
-var path = require('path');
+var path = require("path");
 
 module.exports = {
-   context: path.join(__dirname, "/app"),
-   entry: path.join(__dirname, "/app/index.js"),
+   entry: path.join(__dirname, "app/index.js"),
    output: {
-      path: path.join(__dirname, "/app"),
-      publicPath: path.join(__dirname, "/app/"),
+      path: path.join(__dirname, "app"),
+      publicPath: "/app/",
       filename: "bundle.js"
-   },
-   plugins: [
-      new webpack.optimize.OccurenceOrderPlugin(),
-      new webpack.HotModuleReplacementPlugin(),
-      new webpack.NoErrorsPlugin()
-   ],
-   devServer: {
-      headers: {
-         "Access-Controll-Allow-Origin": "*",
-         "Access-Controll-Allow-Credentials": "true"
-      }
    },
    module: {
       loaders: [
@@ -38,5 +25,6 @@ module.exports = {
             loader: "json-loader"
          }
       ]
-   }
+   },
+   devtool: "eval"
 };

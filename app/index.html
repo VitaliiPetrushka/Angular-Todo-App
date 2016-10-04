@@ -10,18 +10,18 @@
       }
    </style>
 </head>
-<body ng-app="app" class="ng-cloak">
+<body ng-app="app" ng-cloak ng-controller="appController as appCtrl">
    <header>
       <ul>
-         <li><a ng-href="#/">Home</a></li>
-         <li><a ng-href="#/contacts">Contacts</a></li>
-         <li><a ng-href="#/about-me">About me</a></li>
+         <li ng-class="{active:appCtrl.linkIsActive(1)}" ng-click="appCtrl.activateLink(1)"><a ng-href="#/">Home</a></li>
+         <li ng-class="{active:appCtrl.linkIsActive(2)}" ng-click="appCtrl.activateLink(2)"><a ng-href="#/contacts">Contacts</a></li>
+         <li ng-class="{active:appCtrl.linkIsActive(3)}" ng-click="appCtrl.activateLink(3)"><a ng-href="#/about-me">About me</a></li>
       </ul>
    </header>
    <div id="main">
       <div ng-view></div>
    </div>
 
-   <script type="text/javascript" src="bundle.js"></script>
+   <script src="bundle.js"></script>
 </body>
 </html>
