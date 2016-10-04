@@ -1,4 +1,5 @@
 import "./to-do-item.scss";
+import "../../services/UsersService";
 
 const TodoItem = {
    templateUrl: "./components/to-do/to-do-item.html",
@@ -16,13 +17,13 @@ function TodoItemController(UsersService) {
    controller.user_edit = undefined;
 
    controller.handleDeleteUser = function () {
-
+      UsersService.deleteUser(controller.user._id.valueOf());
    };
    controller.handleEditMode = function () {
      controller.edit = !controller.edit;
    };
    controller.handleEditApply = function () {
-      //do some stuff
+      console.log(controller.user_edit);
       controller.edit = !controller.edit;
    };
 }
