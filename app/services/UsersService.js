@@ -27,6 +27,12 @@ function UsersServiceController($http, $q) {
    this.deleteUser = function (id) {
       $http.delete("/api/users/" + id);
    };
+
+   this.editUser = function(id, body) {
+      $http.post("/api/users/" + id, {
+         name: body
+      });
+   }
 }
 
 UsersService.inject = ["$http", "$q"];

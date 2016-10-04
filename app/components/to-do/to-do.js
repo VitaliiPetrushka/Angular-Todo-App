@@ -22,16 +22,10 @@ function TodoController(UsersService) {
       }
    };
 
-   //controller.handleDeleteUser = function (e) {
-   //   var   index = parseInt(e.target.parentElement.dataset.id),
-   //         _id = controller.users[index]._id.valueOf();
-   //   UsersService.deleteUser(_id);
-   //};
-
+   //add user on enter click
    controller.handleEnterClick = function (e) {
       if (e.which == 13 && controller.user_to_add) {
-         UsersService.addUser(controller.user_to_add);
-         controller.user_to_add = undefined;
+         controller.handleAddUser();
       }
    };
 }

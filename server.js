@@ -13,7 +13,7 @@ app.use(body_parser.json());
 
 app.get("/api/users/", function(req, res) {
    MongoClient.connect(url, function(error, db) {
-      if(error) console.log(error);
+      if(error) console.log("Error at connecting to the server", error);
       else {
          db.collection("users").find().toArray(function(error, docs) {
             res.json(docs);
@@ -25,7 +25,7 @@ app.get("/api/users/", function(req, res) {
 
 app.post("/api/users/", function(req, res) {
    MongoClient.connect(url, function(error, db) {
-      if(error) console.log(error);
+      if(error) console.log("Error at connecting to the server", error);
       else {
          db.collection("users").insertOne(req.body);
       }
@@ -36,11 +36,24 @@ app.post("/api/users/", function(req, res) {
 app.delete("/api/users/:id", function(req, res) {
    var id = req.params.id;
    MongoClient.connect(url, function(error, db) {
-      if(error) console.log(error);
+      if(error) console.log("Error at connecting to the server", error);
       else {
          db.collection("users").removeOne({
             _id: new mongodb.ObjectID(id)
          });
+      }
+      db.close();
+   });
+});
+
+app.post("/api/users/:id", function (req, res) {
+   var id = new mongodb.ObjectID(req.params.id);
+   MongoClient.connect(url, function(error, db) {
+      if(error) console.log("Error at connecting to the server", error);
+      else {
+         db.collection("users").updateOne({
+            _id: id
+         }, req.body);
       }
       db.close();
    });

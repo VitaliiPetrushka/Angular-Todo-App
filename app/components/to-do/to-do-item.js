@@ -23,7 +23,8 @@ function TodoItemController(UsersService) {
      controller.edit = !controller.edit;
    };
    controller.handleEditApply = function () {
-      console.log(controller.user_edit);
+      UsersService.editUser(controller.user._id.valueOf(), controller.user_edit);
+
       controller.edit = !controller.edit;
    };
 }
