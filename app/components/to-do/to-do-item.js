@@ -1,3 +1,5 @@
+import "./to-do-item.scss";
+
 const TodoItem = {
    templateUrl: "./components/to-do/to-do-item.html",
    controller: TodoItemController,

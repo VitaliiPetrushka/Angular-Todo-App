@@ -62,37 +62,4 @@
     margin: 0;
     padding: 0;
   }
-  ul li {
-    position: relative;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-    box-sizing: border-box;
-    color: #777;
-    &:last-child {
-      border-bottom: none;
-    }
-    &:hover {
-      background-color: lighten(#ddd, 10%);
-      i.delete_user {
-        visibility: visible;
-      }
-    }
-    span {
-      pointer-events: none;
-    }
-    i.delete_user {
-      display: inline-block;
-      position: absolute;
-      text-align: center;
-      vertical-align: top;
-      right: 10px;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 15px;
-      font-style: normal;
-      line-height: 13px;
-      cursor: pointer;
-      visibility: hidden;
-    }
-  }
 }
